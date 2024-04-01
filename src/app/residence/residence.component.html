@@ -1,0 +1,23 @@
+<p>residence works!</p>
+
+<h1 [ngClass]="{'title-red': quantity == 0,'title-green': quantity !== 0}">{{title}}</h1>
+<h1 [ngStyle]="{'color': quantity == 0 ? 'red' : 'green'}">{{title}}</h1>
+
+ID : {{person.id}}<br>
+Name : {{person.name}}<br>
+
+<ul *ngFor="let element of persons">
+    <li>ID : {{element.id}}</li>
+    <li>Name : {{element.name}}</li>
+</ul>
+
+<button [disabled]="quantity == 0" 
+(click)="BuyProduct()">Buy</button>
+{{quantity}}
+<button *ngIf="quantity !== 0">Buy</button>
+<button *ngIf="quantity == 0" disabled>Buy</button>
+
+<input type="text" name="search" 
+[(ngModel)]="searchText">
+
+{{searchText}}
