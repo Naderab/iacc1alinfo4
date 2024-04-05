@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailResidenceComponent } from './detail-residence/detail-residence.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
+import { FormAppartmentComponent } from './form-appartment/form-appartment.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormResidenceComponent } from './form-residence/form-residence.componen
     NavBarComponent,
     NotFoundComponent,
     DetailResidenceComponent,
-    FormResidenceComponent
+    FormResidenceComponent,
+    FormAppartmentComponent
   ],
   imports: [
     BrowserModule,

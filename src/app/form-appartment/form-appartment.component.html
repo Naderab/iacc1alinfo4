@@ -1,0 +1,25 @@
+<form [formGroup]="f" (ngSubmit)="add()">
+
+    <input type="number" formControlName="apartNum"><br>
+  
+    <input type="number" formControlName="floorNum"><br>
+    <input type="number" formControlName="surface"><br>
+    <input type="radio" formControlName="terrace" value="yes"> Yes<br>
+    <input type="radio" formControlName="terrace" value="no"> No<br>
+
+    <input type="number" formControlName="surfaceTerrace"><br>
+    <input type="radio" formControlName="category" value="s+1">S+1<br>
+    <input type="radio" formControlName="category" value="s+2">S+2<br>
+    <input type="radio" formControlName="category" value="s+3">S+3<br>
+    <textarea formControlName="description"></textarea>
+    <div *ngIf="f.get('description')!.invalid && (f.get('description')!.touched || f.get('description')!.dirty)">
+    <div *ngIf="f.get('description')!.errors!['required']">
+        Description is required
+    </div>
+    <div *ngIf="f.get('description')!.errors!['minlength']">
+        Description must have at least 10 characters
+    </div>
+    </div>
+    <input type="submit" vaue="Add" [disabled]="f.invalid">
+
+</form>
