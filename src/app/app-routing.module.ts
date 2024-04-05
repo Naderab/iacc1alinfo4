@@ -4,13 +4,15 @@ import { ResidenceComponent } from './residence/residence.component';
 import { ResidencesComponent } from './residences/residences.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailResidenceComponent } from './detail-residence/detail-residence.component';
+import { FormResidenceComponent } from './form-residence/form-residence.component';
 
 const routes: Routes = [
   { path: 'residence', component: ResidenceComponent },
   { path: 'residences', component: ResidencesComponent },
-  { path:'residence/:id',component:DetailResidenceComponent },
-  { path:'**',component:NotFoundComponent }
-  
+  { path: 'residence/add', component: FormResidenceComponent },
+  { path: 'residence/:id', component: DetailResidenceComponent },
+
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,13 @@
+<form [formGroup]="residenceForm" (ngSubmit)="add()">
+
+ Name :   <input type="text" formControlName="name"><br>
+   <!-- <input type="text" formControlName="address"><br>-->
+ Adresse :  <div formGroupName="address">
+    Street :<input type="text" formControlName="street"><br>
+    City : <input type="text" formControlName="city"><br>
+   </div>
+    Image: <input type="text" formControlName="image"><br>
+
+    <input type="submit">
+
+</form>
