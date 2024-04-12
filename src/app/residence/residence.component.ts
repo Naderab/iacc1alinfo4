@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ResidenceService } from '../core/services/residence.service';
 
 @Component({
   selector: 'app-residence',
@@ -6,6 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./residence.component.css'],
 })
 export class ResidenceComponent {
+
+  aFromComponent!: number;
+  constructor(private rs: ResidenceService) {
+    this.aFromComponent = rs.a;
+  }
   title: string = 'Bonjour 1ALINFO4';
   person = { id: 1, name: 'Foulen' };
   persons = [

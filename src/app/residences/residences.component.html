@@ -35,3 +35,5 @@ Search : <input type="text" name="search" [(ngModel)]="searchText">
     </tr>
 </table>
 <p *ngIf="listApartByResidence.length == 0 && !hide">No apartment found !</p>
+
+<button (click)="updateAFromComponent()">Update A</button>

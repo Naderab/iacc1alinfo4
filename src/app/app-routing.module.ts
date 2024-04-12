@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'residence/add', component: FormResidenceComponent },
   { path: 'appartement/add', component: FormAppartmentComponent },
   { path: 'residence/:id', component: DetailResidenceComponent },
-
   { path: '**', component: NotFoundComponent },
 ];
 

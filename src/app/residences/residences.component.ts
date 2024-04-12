@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Residence } from '../core/models/residence';
 import { Apartment } from '../core/models/apartment';
+import { ResidenceService } from '../core/services/residence.service';
 
 @Component({
   selector: 'app-residences',
@@ -8,32 +9,15 @@ import { Apartment } from '../core/models/apartment';
   styleUrls: ['./residences.component.css'],
 })
 export class ResidencesComponent {
+
+  constructor(private rs: ResidenceService) {
+    this.listResidences = rs.listResidences;
+  }
   listApartByResidence: Apartment[] = [];
   hide: boolean = true;
-  searchText: string = "";
+  searchText: string = '';
   listApartSearch: Apartment[] = [];
   listResidences: Residence[] = [
-    {
-      id: 1,
-      name: 'ElFell',
-      address: 'Ezzahra',
-      image:
-        'https://www.nexity.fr/media/8739/download/residence-senior-nexity-exterieur.jpg?v=1',
-    },
-    {
-      id: 2,
-      name: 'ElYassmine',
-      address: 'Mourouj',
-      image:
-        'https://www.nexity.fr/media/8739/download/residence-senior-nexity-exterieur.jpg?v=1',
-    },
-    {
-      id: 3,
-      name: 'Nour',
-      address: 'Boumhal',
-      image:
-        'https://www.nexity.fr/media/8739/download/residence-senior-nexity-exterieur.jpg?v=1',
-    },
   ];
 
   listApartments: Apartment[] = [
@@ -91,9 +75,11 @@ export class ResidencesComponent {
         this.listApartByResidence.push(element);
       }
     });
-    this.listApartSearch = this.listApartByResidence
+    this.listApartSearch = this.listApartByResidence;
   }
-
+  updateAFromComponent() {
+    this.rs.UpdateA(10);
+  }
   searchBySurface() {
     this.listApartSearch = [];
     if (this.searchText == '') {
@@ -101,10 +87,9 @@ export class ResidencesComponent {
     } else {
       this.listApartByResidence.forEach((element) => {
         if (element.surface == Number(this.searchText)) {
-          this.listApartSearch.push(element)
+          this.listApartSearch.push(element);
         }
-      })
+      });
     }
-
   }
 }

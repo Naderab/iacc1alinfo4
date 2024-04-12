@@ -1,22 +1,37 @@
 <form [formGroup]="f" (ngSubmit)="add()">
 
-    <input type="number" formControlName="apartNum"><br>
-  
-    <input type="number" formControlName="floorNum"><br>
+    <input type="text" formControlName="apartNum"><br>
+    <div *ngIf="apartNum!.invalid && (apartNum!.touched || apartNum!.dirty)">
+        <div *ngIf="apartNum!.errors!['required']">
+            Apart number is required
+        </div>
+        <div *ngIf="apartNum!.errors!['pattern']">
+            Apart number accept only numbers
+        </div>
+    </div>
+    <input type="text" formControlName="floorNum"><br>
+        <div *ngIf="floorNum!.invalid && (floorNum!.touched || floorNum!.dirty)">
+            <div *ngIf="floorNum!.errors!['required']">
+                floor number is required
+            </div>
+            <div *ngIf="floorNum!.errors!['pattern']">
+                floor number accept only numbers
+            </div>
+        </div>
     <input type="number" formControlName="surface"><br>
     <input type="radio" formControlName="terrace" value="yes"> Yes<br>
     <input type="radio" formControlName="terrace" value="no"> No<br>
 
-    <input type="number" formControlName="surfaceTerrace"><br>
+    <input *ngIf="f.get('terrace')!.value == 'yes'" type="number" formControlName="surfaceTerrace"><br>
     <input type="radio" formControlName="category" value="s+1">S+1<br>
     <input type="radio" formControlName="category" value="s+2">S+2<br>
     <input type="radio" formControlName="category" value="s+3">S+3<br>
     <textarea formControlName="description"></textarea>
-    <div *ngIf="f.get('description')!.invalid && (f.get('description')!.touched || f.get('description')!.dirty)">
-    <div *ngIf="f.get('description')!.errors!['required']">
+    <div *ngIf="description!.invalid && (description!.touched || description!.dirty)">
+    <div *ngIf="description!.errors!['required']">
         Description is required
     </div>
-    <div *ngIf="f.get('description')!.errors!['minlength']">
+    <div *ngIf="description!.errors!['minlength']">
         Description must have at least 10 characters
     </div>
     </div>
