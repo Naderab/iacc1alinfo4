@@ -31,9 +31,9 @@ Search : <input type="text" name="search" [(ngModel)]="searchText">
         <td>{{a.floorNum}}</td>
         <td>{{a.surface}}</td>
         <td>{{a.residence.name}}</td>
-
-    </tr>
-</table>
-<p *ngIf="listApartByResidence.length == 0 && !hide">No apartment found !</p>
+        
+        </tr>
+        </table>
+        <p *ngIf="listApartByResidence.length == 0 && !hide">No apartment found !</p>
 
 <button (click)="updateAFromComponent()">Update A</button>

@@ -1,1 +1,19 @@
 <p>{{residence.name}}</p>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>appartNum</th>
+        <th>floorNum</th>
+        <th>Surface</th>
+        <th>Residence</th>
+    </tr>
+    <tr *ngFor="let a of listApartSearch">
+        <td>{{a.id}}</td>
+        <td>{{a.appartNum}}</td>
+        <td>{{a.floorNum}}</td>
+        <td>{{a.surface}}</td>
+        <td>{{a.residence.name}}</td>
+
+    </tr>
+</table>
+<p *ngIf="listApartByResidence.length == 0 && !hide">No apartment found !</p>
