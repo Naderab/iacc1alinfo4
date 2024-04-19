@@ -11,7 +11,12 @@ import { ResidenceService } from '../core/services/residence.service';
 export class ResidencesComponent {
 
   constructor(private rs: ResidenceService) {
-    this.listResidences = rs.listResidences;
+    // this.listResidences = rs.listResidences;
+    rs.getResidences().subscribe({
+      next:(data)=>this.listResidences = data,
+      error:(e)=>alert(e.message)
+    })
+
   }
   listApartByResidence: Apartment[] = [];
   hide: boolean = true;

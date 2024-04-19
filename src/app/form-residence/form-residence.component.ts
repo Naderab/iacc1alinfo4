@@ -14,7 +14,7 @@ export class FormResidenceComponent {
   residenceForm: FormGroup = new FormGroup({
     name: new FormControl(),
     address: new FormControl(),
-    image: new FormControl({value:'test image',disabled:true})
+    image: new FormControl()
   })
 
   // residenceForm: FormGroup = new FormGroup({
@@ -30,7 +30,11 @@ export class FormResidenceComponent {
     console.log(this.residenceForm.value);
     console.log(this.residenceForm.getRawValue());
     console.log(this.residenceForm.get('name'));
-    this.rs.addResidenceToList(this.residenceForm.getRawValue());
-    this.r.navigate(['/residences']);
+    //this.rs.addResidenceToList(this.residenceForm.getRawValue());
+    //this.r.navigate(['/residences']);
+    this.rs.addResidence(this.residenceForm.value).subscribe({
+      next: () => this.r.navigate(['/residences']),
+      error:(e)=>alert(e.message)
+    })
   }
 }

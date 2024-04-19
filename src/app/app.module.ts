@@ -11,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailResidenceComponent } from './detail-residence/detail-residence.component';
 import { FormResidenceComponent } from './form-residence/form-residence.component';
 import { FormAppartmentComponent } from './form-appartment/form-appartment.component';
-
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { FormAppartmentComponent } from './form-appartment/form-appartment.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
